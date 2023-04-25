@@ -1,11 +1,8 @@
 const Router = require('@koa/router');
+const IndexController = require('../controller/index.controller');
 
 const IndexRouter = new Router();
 
-
-// get /
-IndexRouter.get('/', (ctx, next) => {
-    ctx.body = 'this is IndexRouter';
-})
+IndexRouter.get('/', IndexController.register);
 
 module.exports = IndexRouter;

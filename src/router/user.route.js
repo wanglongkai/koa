@@ -1,11 +1,9 @@
 const Router = require('@koa/router');
-
+const UserController = require('../controller/user.controller');
 const UserRouter = new Router({prefix: '/users'});
 
 
 // get /users/
-UserRouter.get('/', (ctx, next) => {
-    ctx.body = 'this is UserRouter';
-})
+UserRouter.get('/', UserController.register);
 
 module.exports = UserRouter;
