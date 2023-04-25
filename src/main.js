@@ -1,11 +1,10 @@
 const Koa = require('koa');
 const Router = require('@koa/router');
-
 const path = require('path');
 const static = require('koa-static');
 const mount = require('koa-mount');
 
-const compose = require('koa-compose');
+const {APP_PORT} = require('./config/config.default');
 
 const App = new Koa();
 const router = new Router();
@@ -21,8 +20,9 @@ App.use(async (ctx, next) => {
 App.on('error', err => {
     console.log('app error', err);
 })
+
 App.use(
-    mount('/static', static(path.join(__dirname, './public')))
+    mount('/static', static(path.resolve(__dirname, '../public')))
 );
 
 App.use(router.routes()).use(router.allowedMethods());
@@ -32,22 +32,7 @@ router.get('/', (ctx, next) => {
     next();
 })
 
-const one = (ctx, next) => {
-    console.log('>> one');
-    next();
-    console.log('<< one');
-}
-const two = (ctx, next) => {
-    console.log('>> two');
-    next();
-    console.log('<< two');
-}
-const three = (ctx, next) => {
-    console.log('>> three');
-    next();
-    console.log('<< three');
-}
 
-App.use(compose([one, two, three]));
-
-App.listen(3000);
+App.listen(APP_PORT, () => {
+    console.log(`server in running at http://localhost:${APP_PORT}`);
+});
