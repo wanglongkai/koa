@@ -3,7 +3,7 @@ const UserController = require('../controller/user.controller');
 const UserRouter = new Router({prefix: '/users'});
 
 
-// get /users/
-UserRouter.get('/', UserController.register);
+// post /users/
+UserRouter.post('/', UserController.register);
 
 module.exports = UserRouter;

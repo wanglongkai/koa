@@ -1,6 +1,9 @@
+const { createUser } = require('../service/user.service');
 class UserController{
     async register(ctx, next){
-        ctx.body = 'index controller'
+        const userInfo = ctx.request.body;
+        const res = await createUser(userInfo);
+        ctx.body = res;
     }
 }
 
