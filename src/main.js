@@ -1,13 +1,12 @@
 const Koa = require('koa');
-const Router = require('@koa/router');
 const path = require('path');
 const static = require('koa-static');
 const mount = require('koa-mount');
-
+const UserRouter = require('./router/user.route');
+const IndexRouter = require('./router/index.route');
 const {APP_PORT} = require('./config/config.default');
 
 const App = new Koa();
-const router = new Router();
 
 App.use(async (ctx, next) => {
     try{
@@ -25,12 +24,8 @@ App.use(
     mount('/static', static(path.resolve(__dirname, '../public')))
 );
 
-App.use(router.routes()).use(router.allowedMethods());
-
-router.get('/', (ctx, next) => {
-    ctx.body = 'koa router get /';
-    next();
-})
+App.use(UserRouter.routes()).use(UserRouter.allowedMethods());
+App.use(IndexRouter.routes()).use(IndexRouter.allowedMethods());
 
 
 App.listen(APP_PORT, () => {
