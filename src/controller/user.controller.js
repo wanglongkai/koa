@@ -18,6 +18,10 @@ class UserController {
             ctx.app.emit('error', userRegisterError, ctx);
         }
     }
+
+    async login(ctx, next) {
+        ctx.body = `login-${ctx.request.body}`
+    }
 }
 
 module.exports = new UserController;
