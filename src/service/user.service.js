@@ -1,8 +1,9 @@
+const User = require('../model/user.model');
+
 class UserService{
     async createUser(UserInfo){
-        console.log(UserInfo, 3);
-        //todo:
-        return '创建user成功'
+        const res = await User.create(UserInfo);
+        return res.dataValues;
     }
 }
 

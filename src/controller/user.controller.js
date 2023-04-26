@@ -3,7 +3,14 @@ class UserController{
     async register(ctx, next){
         const userInfo = ctx.request.body;
         const res = await createUser(userInfo);
-        ctx.body = res;
+        ctx.body =  {
+            code: 0,
+            message: '用户注册成功',
+            result: {
+              id: res.id,
+              user_name: res.user_name,
+            },
+          }
     }
 }
 
