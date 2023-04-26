@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const { getUerInfo } = require('../service/user.service')
 const { userFormateError, userAlreadyExited, userRegisterError } = require('../constant/err.type')
 
@@ -28,7 +29,17 @@ const verifyUser = async (ctx, next) => {
     await next()
 }
 
+// 密码加密中间件
+const cryptPassword = async (ctx, next) => {
+    const { password } = ctx.request.body;
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(String(password), salt);
+    ctx.request.body.password = hash;
+    await next();
+}
+
 module.exports = {
     userValidator,
     verifyUser,
+    cryptPassword
 }

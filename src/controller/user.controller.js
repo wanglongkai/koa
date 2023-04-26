@@ -5,7 +5,7 @@ class UserController {
         const { user_name, password } = ctx.request.body;
         try {
             // 插入数据
-            const res = await createUser(user_name, password);
+            const res = await createUser({ user_name, password });
             ctx.body = {
                 code: 0,
                 message: '用户注册成功',
