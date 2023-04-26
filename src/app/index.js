@@ -3,6 +3,7 @@ const path = require('path');
 const static = require('koa-static');
 const mount = require('koa-mount');
 const { koaBody } = require('koa-body');
+const errHandler = require('./errHandler')
 
 const UserRouter = require('../router/user.route');
 const IndexRouter = require('../router/index.route');
@@ -19,6 +20,10 @@ App.use(koaBody());
 
 App.use(UserRouter.routes()).use(UserRouter.allowedMethods());
 App.use(IndexRouter.routes()).use(IndexRouter.allowedMethods());
+
+
+// 统一的错误处理
+App.on('error', errHandler)
 
 module.exports = App;
 
