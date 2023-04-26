@@ -29,4 +29,19 @@ module.exports = {
         message: '密码不匹配',
         result: '',
     },
+    tokenExpiredError: {
+        code: '10007',
+        message: 'token已过期',
+        result: ''
+    },
+    invalidToken: {
+        code: '10008',
+        message: '无效token',
+        result: ''
+    },
+    noAuth: {
+        code: '10009',
+        message: '无权限',
+        result: ''
+    }
 }
