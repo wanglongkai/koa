@@ -6,3 +6,5 @@
 [2023-04-27T16:04:41.573] [INFO] access - ::1 - - "POST /files/ HTTP/1.1" 404 - "" "PostmanRuntime/7.32.2"
 [2023-04-27T16:11:01.162] [INFO] access - ::1 - - "POST / HTTP/1.1" 404 - "" "PostmanRuntime/7.32.2"
 [2023-04-27T16:11:27.076] [INFO] access - ::1 - - "POST /files HTTP/1.1" 200 111 "" "PostmanRuntime/7.32.2"
+[2023-04-27T16:41:23.808] [INFO] access - ::1 - - "POST /files HTTP/1.1" 500 111 "" "PostmanRuntime/7.32.2"
+[2023-04-27T16:41:50.555] [INFO] access - ::1 - - "POST /files HTTP/1.1" 500 13 "" "PostmanRuntime/7.32.2"
