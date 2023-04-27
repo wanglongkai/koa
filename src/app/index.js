@@ -4,9 +4,7 @@ const static = require('koa-static');
 const mount = require('koa-mount');
 const { koaBody } = require('koa-body');
 const errHandler = require('./errHandler')
-
-const UserRouter = require('../router/user.route');
-const IndexRouter = require('../router/index.route');
+const Router = require('../router');
 
 const App = new Koa();
 
@@ -18,8 +16,8 @@ App.use(
 // 注册body解析中间件
 App.use(koaBody());
 
-App.use(UserRouter.routes()).use(UserRouter.allowedMethods());
-App.use(IndexRouter.routes()).use(IndexRouter.allowedMethods());
+// 注册路由
+App.use(Router.routes()).use(Router.allowedMethods());
 
 
 // 统一的错误处理
