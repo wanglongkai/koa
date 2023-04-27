@@ -116,8 +116,24 @@ Koa异常处理的注意点：
     })
    ```
 
-   ## Koa请求解析中间件
-   **koa-body**
+## Koa请求解析中间件
+**koa-body**
+
+## koa常用中间件
+```json
+  {
+    "@koa/router": "^12.0.0", // 路由
+    "bcryptjs": "^2.4.3", // 加密
+    "dotenv": "^16.0.3", // 环境变量获取
+    "jsonwebtoken": "^9.0.0", // token颁发
+    "koa-body": "^6.0.1", // 请求体解析，支持文件上传等很多功能
+    "koa-compose": "^4.1.0", // 组合中间件为一个中间件
+    "koa-mount": "^4.0.0", // 重命名
+    "koa-static": "^5.0.0", // 静态资源配置
+    "mysql2": "^3.2.4", // mysql数据库驱动
+    "sequelize": "^6.31.0" // sequelize ORM数据库映射
+  }
+```
 
 
 

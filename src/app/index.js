@@ -14,7 +14,16 @@ App.use(
 );
 
 // 注册body解析中间件
-App.use(koaBody());
+App.use(koaBody({
+    multipart: true, // 支持文件上传
+    formidable: {
+        uploadDir: path.resolve(__dirname, '../upload'), // 文件上传保存路径
+        keepExtensions: true, // 保留文件后缀名
+        filename: (name, ext) => { // 重命名保存名称
+            return `${new Date().getTime()}-${name}${ext}`
+        }
+    }
+}));
 
 // 注册路由
 App.use(Router.routes()).use(Router.allowedMethods());
