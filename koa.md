@@ -131,7 +131,8 @@ Koa异常处理的注意点：
     "koa-mount": "^4.0.0", // 重命名
     "koa-static": "^5.0.0", // 静态资源配置
     "mysql2": "^3.2.4", // mysql数据库驱动
-    "sequelize": "^6.31.0" // sequelize ORM数据库映射
+    "sequelize": "^6.31.0", // sequelize ORM数据库映射
+    "koa-log4": "^2.3.2", // 日志管理插件
   }
 ```
 

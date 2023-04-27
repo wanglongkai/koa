@@ -5,8 +5,12 @@ const mount = require('koa-mount');
 const { koaBody } = require('koa-body');
 const errHandler = require('./errHandler')
 const Router = require('../router');
+const { accessLogger } = require('../utils/logger');
+
 
 const App = new Koa();
+// 注册全局日志记录
+App.use(accessLogger())
 
 // 注册静态资源托管中间件
 App.use(
